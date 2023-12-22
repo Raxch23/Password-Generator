@@ -100,25 +100,22 @@ function getPasswordOptions() {
   var charactersArray = []
   if (yeslowerCase) {
     charactersArray = charactersArray.concat(lowerCasedCharacters)
-    console.log(charactersArray)
   }
   if (confirm("would you like uppercase letters?")) {
     charactersArray = charactersArray.concat(upperCasedCharacters)
-    console.log(charactersArray)
   }
   if (confirm("would you like numbers?")) {
     charactersArray = charactersArray.concat(numericCharacters)
-    console.log(charactersArray)
   }
   if (confirm("would you like special characters?")) {
     charactersArray = charactersArray.concat(specialCharacters)
-    console.log(charactersArray)
   }
   if (charactersArray.length === 0) {
     alert("You must select at least one character type")
     return;
   }
-  getRandom(charactersArray,passLength)
+  // getRandom(charactersArray,passLength)
+  return {charactersArray,passLength}
 }
 
 // Function for getting a random element from an array
@@ -129,13 +126,16 @@ for(var i=0;i<length;i++){
   var digit=arr[index]
 password+=digit
 }
+console.log(password)
 return password;
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  var generatePassword=getPasswordOptions()
-  return generatePassword
+  //var generatePassword=getPasswordOptions()
+var options=getPasswordOptions()
+return getRandom(options.charactersArray,options.passLength)
+ // return generatePassword
 }
 
 // Get references to the #generate element
@@ -143,7 +143,8 @@ const generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  const password = generatePassword();
+const password = generatePassword();
+  //console.log(password)
   const passwordText = document.querySelector('#password');
 
   passwordText.value = password;
