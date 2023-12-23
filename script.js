@@ -93,7 +93,7 @@ function getPasswordOptions() {
   var passLength = parseInt(window.prompt("please enter your desired password length"));
   console.log(passLength)
   if (passLength < 8 || passLength > 128 || isNaN(passLength)) {
-    alert("You must select at least one character type")
+    alert("The password must be at least 8 characters long and 128 characters max.")
     return;
   }
   var yeslowerCase = confirm("would you like lowercase letters?")
