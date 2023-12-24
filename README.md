@@ -10,3 +10,5 @@ This week's task is to alter starter code to construct an application that an em
 It is to be used to generate random passwords that can include special characters.
 
 # Instalation:
+Deployed link: https://raxch23.github.io/Password-Generator/
+
